@@ -11,5 +11,5 @@ do
 		echo "Hi"
 	fi
 	echo "Best School"
-	i=$[$i+1]
+	(( i++ ))
 done
