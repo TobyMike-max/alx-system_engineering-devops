@@ -5,16 +5,16 @@
 #+ (requesting a page) using curl, it must return a page that contains
 #+ The string Hello World.
 
-apt-get -y update
-apt-get -y install nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
 
-mkdir /etc/nginx/html
-touch /etc/nginx/html/index.html
-echo "Hello World!" > /etc/nginx/html/index.html
+sudo mkdir /var/www/html
+sudo touch /var/www/html/index.html
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.html'
 printf %s "server {
 	listen	80 default_server;
 	listen	[::]:80 default_server;
-	root	/etc/nginx/html
+	root	/var/www/html
 	index	index.html index.htm;
 }
 " > /etc/nginx/sites-available/default
