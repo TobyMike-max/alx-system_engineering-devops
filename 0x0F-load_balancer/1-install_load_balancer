@@ -16,28 +16,30 @@ mv /etc/haproxy/haproxy.cfg{,.original}
 touch /etc/haproxy/haproxy.cfg
 
 printf %s "global
-    maxconn 2000
+    maxconn 5000
+    log /dev/log local0
     user haproxy
     group haproxy
+    nbproc 2
+    nbthread 4
 
 defaults
-    log		global
-    mode 	http
-    option 	httplog
-    option 	dontlognull
-    retries 	3
-    option	redispatch
-    timeout connect 5000
-    timeout client 10000
-    timeout server 10000
+    log	global
+    mode http
+    option httplog
+    maxconn 2000
+    timeout connect 10000
+    timeout client 30000
+    timeout server 30000
 
-frontend haproxy-main
+frontend tcreate.tech
     bind *:80
     option forwardfor
-    default_backend web-backend
+    default_backend web_servers
 
-backend web-backend
+backend web_servers
     balance roundrobin
+    default-server check maxconn 20
     server 6879-web-01 3.235.20.78:80 check
     server 6879-web-02 44.201.70.161:80 check
 " >> /etc/haproxy/haproxy.cfg
