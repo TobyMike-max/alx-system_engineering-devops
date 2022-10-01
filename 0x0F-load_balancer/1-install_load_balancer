@@ -36,6 +36,6 @@ backend web_servers
     default-server check maxconn 20
     server 6879-web-01 3.235.20.78:80 check
     server 6879-web-02 44.201.70.161:80 check
-" >> /etc/haproxy/haproxy.cfg'
+" > /etc/haproxy/haproxy.cfg'
 
 sudo service haproxy restart
