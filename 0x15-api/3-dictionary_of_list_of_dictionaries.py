@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Script that returns info using REST API."""
+import json
 import requests
 from sys import argv
 
