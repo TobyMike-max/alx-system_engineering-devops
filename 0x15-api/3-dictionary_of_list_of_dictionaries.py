@@ -22,4 +22,4 @@ if __name__ == "__main__":
             task_list.append(task_dict)
         json_dict[i] = task_list
     with open("todo_all_employees.json", 'w') as jsonfile:
-        json.dump(jsonfile, json_dict)
+        json.dump(json_dict, jsonfile)
