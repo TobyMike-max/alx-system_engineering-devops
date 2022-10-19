@@ -7,7 +7,7 @@ from sys import argv
 
 if __name__ == "__main__":
     json_dict = {}
-    for i in range(0, 10):
+    for i in range(0, 11):
         user_todos = requests.get(
                     'https://jsonplaceholder.typicode.com/todos?userId={}'
                     .format(i), verify=False).json()
