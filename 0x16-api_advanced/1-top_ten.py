@@ -13,7 +13,7 @@ def top_ten(subreddit):
     params = {
             "limit": 10
     }
-    res = requests.get(url, headers=headers, params=params
+    res = requests.get(url, headers=headers, params=params,
                        allow_redirects=False)
     if res.status_code == 200:
         result = res.json()['data']
