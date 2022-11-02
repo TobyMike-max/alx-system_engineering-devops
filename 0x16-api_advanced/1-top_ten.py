@@ -17,6 +17,6 @@ def top_ten(subreddit):
                        allow_redirects=False)
     if res.status_code == 200:
         result = res.json()['data']
-        [print(c['data']['title']) for c in results['children']]
+        [print(c['data']['title']) for c in result['children']]
     else:
         return (print("None"))
