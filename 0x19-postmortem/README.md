@@ -7,18 +7,19 @@ HTML page was expected.
 From 6:26 PM to 7:58 PM WAT, requests to the Apache Web server resulted in 500 error response
 messages. All services that relied on this server also returned errors. At its peak, the issue
 affected 100% of traffic to this Server. The root cause of this error was an incorrectly typed file
-name``(class-wp-locale.phpp)`` which was meant to be class-wp-locale.php
+name``(class-wp-locale.phpp)`` which was meant to be class-wp-locale.php (Do people still make typos
+in this age)
 
 ## Timeline (all times West African Time)
 + 6:19PM: Server Configuration
-+ 6:20PM: Error on request, noticed by engineer
++ 6:20PM: Error on request, noticed by engineer (I thought I would loose my job)
 + 6:20PM: Engineer first checked running processes with ``ps aux``
 + 6:22PM: Confirmed that web server was serving content from ``/var/www/html/`` folder
 + 6:25PM: Ran strace on the PID of root Apache process while curling server on another instance
 + 6:54PM: Ran starce on the PID of www-data process which showed where error origin
 + 6:58PM: Looked through all files in ``/var/www/html/`` to locate file containing error
 + 7:15PM: Successful error debugging and application of changes by removing trailing p
-+ 7:18PM: Tested server by curling in another instance
++ 7:18PM: Tested server by curling in another instance (My dream car is still secured :)
 + 7:19PM: Server restarts begin
 + 7:20PM: Wrote Puppet manifest to automate fixing the error.
 + 7:58PM: 100% of traffic back online
